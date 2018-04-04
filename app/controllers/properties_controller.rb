@@ -16,8 +16,7 @@ class PropertiesController < ApplicationController
   def new
     @property = Property.new
     
-    @property.nearest_stations.build([{number:1},{number:2},{number:3}])
-
+    @property.nearest_stations.build([{number:1},{number:2}])
   end
 
   # GET /properties/1/edit
@@ -27,7 +26,6 @@ class PropertiesController < ApplicationController
   # POST /properties
   # POST /properties.json
   def create
-
     @property = Property.new(property_params)
 
     respond_to do |format|
@@ -73,7 +71,18 @@ class PropertiesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def property_params
-      params.require(:property).permit(:name, :rent, :address, :age, :note,
-        nearest_stations_attributes: [:id, :number, :rail_way, :name, :on_foot])
+      params.require(:property).permit(:name,
+                                       :rent,
+                                       :address,
+                                       :age,
+                                       :note,
+                                       nearest_stations_attributes: [
+                                         :id,
+                                         :number,
+                                         :rail_way,
+                                         :name,
+                                         :on_foot
+                                         ]
+                                      )
     end
 end
