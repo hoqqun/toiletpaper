@@ -1,0 +1,22 @@
+# モデル名
+ja:
+  activerecord:
+    models:
+      property: 物件
+      nearest_station: 最寄り駅
+
+# モデルの属性名
+ja:
+  activerecord:
+    attributes:
+      property:
+        name: 物件名
+        rent: 賃料
+        address: 住所
+        age: 築年数
+        note: 備考
+      nearest_station:
+        rail_way: 路線名
+        name: 駅名
+        on_foot: 徒歩分数
+
